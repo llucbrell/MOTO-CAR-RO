@@ -1,54 +1,24 @@
+#include "motocarroMotors.h"
+ 
 byte motorLeft = 9;
 byte motorRight= 10;
 
+//create a MotocarroMotor object
+MotocarroMotors motor;
  
 
 void setup() {
   // put your setup code here, to run once:
+motor.setEngine(motorLeft, motorRight);
 
-// wake up pins!!!
-pinMode(motorLeft, OUTPUT);
-pinMode(motorRight, OUTPUT);
+  //test if motors works correctly
+motor.testEngine();
 
-
-// turn-off motor
-digitalWrite(motorLeft, LOW);
-digitalWrite(motorRight, LOW);
 
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  //digitalWrite(motorSpeed, HIGH);
-  //analogWrite(enable, 200);
-  digitalWrite(motorLeft, HIGH); 
  
-  delay(2000);
-  digitalWrite(motorLeft, LOW);
-
-  digitalWrite(motorRight, HIGH);
- 
-  delay(2000);
-  digitalWrite(motorRight, LOW);
- 
-  delay(2000);
-
-  digitalWrite(motorLeft, HIGH);
-  digitalWrite(motorRight,HIGH);
-
-  delay(2000);
-
-  digitalWrite(motorLeft, LOW);
-  digitalWrite(motorRight,LOW);
-
-  delay(2000);
-
-  analogWrite(motorLeft, 100);
-  delay(2000);
-  
-  analogWrite(motorLeft, 250);
-
-  delay(2000);
  
 }
