@@ -43,5 +43,12 @@ void loop() {
   digitalWrite(motorRight,LOW);
 
   delay(2000);
+
+  analogWrite(motorLeft, 100);
+  delay(2000);
+  
+  analogWrite(motorLeft, 250);
+
+  delay(2000);
  
 }
