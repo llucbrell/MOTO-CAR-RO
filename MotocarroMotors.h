@@ -58,22 +58,24 @@ class MotocarroMotors {
     //test for the engines
     void testEngine() {
       //test the engine moving forward, backward and testing direction
-      gas(powerMotor, 120, 500);
-      gas(powerMotor, 150, 500);
+      gas(powerMotor, 120, 200);
+      gas(powerMotor, 150, 200);
       stopGas(powerMotor, 1000);
-      reverse(powerMotor, 120, 500);
-      reverse(powerMotor, 150, 500);
+      reverse(powerMotor, 120, 200);
+      reverse(powerMotor, 150, 200);
       stopGas(powerMotor, 1000);
       gas(directionMotor, 255, 1000);
       stopGas(directionMotor, 500);
       reverse(directionMotor, 255, 1000);
       stopGas(directionMotor, 1000);
 
+/* 
+      //unncomment for combinated motors test
       goLeft(255, 150, 1000);
       backLeft(255, 150, 1000);
       goRight(255, 150, 1000);
       backRight(255, 150, 1000);
-
+*/
     }
 
     // no power for the engine
@@ -101,6 +103,9 @@ class MotocarroMotors {
       delay(mytime);
     }
 
+    void stopM(int mytime){
+      stopGas(powerMotor, mytime);
+    }
     void goRight(byte amount, byte power, int mytime) {
       digitalWrite(directionMotor[0], LOW);
       digitalWrite(directionMotor[1], HIGH);
@@ -123,6 +128,15 @@ class MotocarroMotors {
       delay(mytime);
       stopGas(powerMotor, 100);
       stopGas(directionMotor, 100);
+    }
+
+    void goStraight( byte power, int mytime) {
+      analogWrite(powerMotor[2], power);
+      digitalWrite(powerMotor[0], HIGH);
+      digitalWrite(powerMotor[1], LOW);
+      
+      delay(mytime);
+      stopGas(powerMotor, 100);
     }
 
     void backRight(byte amount, byte power, int mytime) {
